@@ -9,14 +9,18 @@
     <link rel="stylesheet" type="text/css" href="{% static 'app/app.css' %}">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source Sans Pro">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}" media="screen,projection" />
+     <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+          
 </head>
 
 <body class="is-loading" id="index">
     {% block content %} 
     {% endblock %}
     <footer id="footer"></footer>
-    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 </body>
 
 </html>

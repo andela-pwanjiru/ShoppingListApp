@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from .views import LoginView
+from .views import LoginView, ShoppingView, ShoppingItemsView
 
 urlpatterns = [
     url(r'^$', LoginView.as_view(), name='index'),
+    url(r'^main/$', ShoppingView.as_view(), name='main'),
+    url(r'^main/(?P<pk>[0-9]+)/items/$', ShoppingItemsView.as_view(), name='items'),
 ]

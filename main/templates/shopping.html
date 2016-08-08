@@ -1,0 +1,52 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+    {% block navbar %} 
+    {% include "nav.html" %}
+    {% endblock %}
+<div class="modal-view" id="modal-sign-in">
+    <div class="row">
+         <div class="shoppingmdl" id="shoppingmodal">
+            <header class="row">
+                <h4 class="col m4">Shopping lists:</h4>
+            </header>
+            <div class="row">
+                 <div class="col-md-7">
+                     <form action="{% url 'main' %}" method="POST">   
+                         <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                         <div class="custom-form-group">
+                             <div class="custom-input-group col m6 offset-m2">
+                                 <input type="text" name="title"  id="title" placeholder="Write shopping list title">
+                             </div>
+                         </div>
+                         <div class="center-buttons">
+                             <div>
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Add new list
+                                    <i class="material-icons right">send</i>
+                                </button>
+                             </div>
+                         </div>         
+                     </form>
+                 </div>
+            </div>
+            <div>
+            
+            <div class="row">
+                {% for list in object_list %}
+                <div class="col s12 m3">
+                  <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">
+                            <a href="{% url 'items' pk=list.pk %}"><p style="color:white;">{{list.title}}</p></a>
+                        </span> 
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+            </div>
+            </div>    
+         </div>
+     </div>
+ </div>
+ {% endblock content %}
