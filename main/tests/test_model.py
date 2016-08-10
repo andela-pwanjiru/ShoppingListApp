@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from .models import ShoppingList, ShoppingListItem
+from main.models import ShoppingList, ShoppingListItem
 
 
 class ShoppingListModelTests(TestCase):

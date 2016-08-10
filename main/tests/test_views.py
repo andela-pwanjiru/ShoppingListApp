@@ -1,6 +1,6 @@
 from django.core.urlresolvers import reverse
 from django.test import TestCase
-from .models import User, ShoppingList, ShoppingListItem
+from main.models import User, ShoppingList, ShoppingListItem
 
 
 class ShoppinglistViewTests(TestCase):

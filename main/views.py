@@ -1,13 +1,9 @@
 from django.shortcuts import render
 from django.views import generic
-from django.views.generic import TemplateView, View
+from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import ShoppingList, ShoppingListItem
-from django.shortcuts import render, redirect
-from django.template.response import TemplateResponse
-from .forms import ShoppingListForm, ShoppingListItemForm
-from django.contrib import messages
-from django.template import RequestContext
+
 
 # Create your views here.
 class LoginView(TemplateView):
@@ -17,11 +13,12 @@ class LoginView(TemplateView):
 
 
 class ShoppingView(LoginRequiredMixin, generic.CreateView, generic.ListView):
-    """View to create and return list of bucketlist"""
+    """View to create and return list of shopinglist"""
     template_name = 'shopping.html'
     success_url = '/main'
     model = ShoppingList
     fields = ['title']
+    paginate_by = 4
 
     def form_valid(self, form):
         shoppinglist = form.save(commit=False)
