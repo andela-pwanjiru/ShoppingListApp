@@ -17,8 +17,8 @@ class ShoppingView(LoginRequiredMixin, generic.CreateView, generic.ListView):
     template_name = 'shopping.html'
     success_url = '/main'
     model = ShoppingList
-    fields = ['title']
-    paginate_by = 4
+    fields = ['title', 'budget']
+    
 
     def form_valid(self, form):
         shoppinglist = form.save(commit=False)
@@ -45,3 +45,5 @@ class ShoppingItemsView(LoginRequiredMixin, generic.CreateView, generic.ListView
 
     def get_queryset(self):
         return ShoppingListItem.objects.all()
+
+

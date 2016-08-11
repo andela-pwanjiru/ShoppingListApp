@@ -9,7 +9,7 @@ class ShoppingListForm(forms.ModelForm):
 
     class Meta:
         model = ShoppingList
-        fields = ['title']
+        fields = ['title', 'budget']
 
 
 class ShoppingListItemForm(forms.ModelForm):

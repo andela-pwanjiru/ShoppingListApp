@@ -13,12 +13,17 @@
             <div class="row">
                 <div class="col-md-7">
                     <form action="{% url 'main' %}" method="POST">
-                        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-                        <div class="custom-form-group">
-                            <div class="custom-input-group col m6 offset-m2">
-                                <input type="text" name="title" id="title" placeholder="Write shopping list title">
+                        <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">     
+                            <div class="custom-form-group">
+                                <div class="custom-input-group col m4 offset-m1">
+                                    <input type="text" name="title" id="title" placeholder="Write shopping list title">
+                                </div>
                             </div>
-                        </div>
+                            <div class="custom-form-group">
+                                <div class="custom-input-group col m4">
+                                    <input type="text" name="budget" id="budget" placeholder="Enter your budget">
+                                </div>
+                            </div>    
                         <div class="center-buttons">
                             <div>
                                 <button class="btn waves-effect waves-light" type="submit" name="action">Add new list
@@ -37,6 +42,7 @@
                             <div class="card-content white-text">
                                 <span class="card-title">
                             <a href="{% url 'items' pk=list.pk %}"><p style="color:white;">{{list.title}}</p></a>
+                            <p style="color:white;">{{list.budget}}</p>
                         </span>
                             </div>
                         </div>

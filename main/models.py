@@ -10,6 +10,7 @@ class ShoppingList(models.Model):
 
     title = models.CharField(max_length=255)
     user = models.ForeignKey(User, related_name="user")
+    budget = models.IntegerField()
 
     def __unicode__(self):
         return u'%s' % self.title
